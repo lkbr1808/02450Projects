@@ -7,6 +7,13 @@
 # now we can write 'np.sum(X)' instead of 'numpy.sum(X)'.
 import numpy as np 
 
+import sys
+sys.insert.path(1, "Tools/toolbox_02450")
+
+import statistics
+
+statistics.ciao()
+
 # Remember you can mark a part of the code and press
 # F9 to run that part alone.
 
