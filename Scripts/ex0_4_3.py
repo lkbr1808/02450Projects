@@ -7,6 +7,7 @@
 # now we can write 'np.sum(X)' instead of 'numpy.sum(X)'.
 import numpy as np 
 
+
 # Remember you can mark a part of the code and press
 # F9 to run that part alone.
 
