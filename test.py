@@ -1,7 +1,7 @@
 import sys
 
-sys.path.insert(1, "02450Toolbox_Python/Tools/toolbox_02450")
+sys.path.insert(1, "Tools/toolbox_02450")
 
-import statistics
+import statistics as stats
 
-statistics.ciao()
+stats.ciao()
