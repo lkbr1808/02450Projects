@@ -1,4 +1,5 @@
 02450.code-workspace
 .vscode/
 .venv/
-.scripts/
+Scripts/
+venv/
