@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+
+=======
 These data record the level of atmospheric ozone concentration from
 eight daily meteorological measurements made in the Los Angeles basin
 in 1976.  Although measurements were made every day that year, some
@@ -17,3 +20,4 @@ dpg : Daggot Pressure Gradient   ,continuous ,interval
 ibt : Inversion Base Temperature ,continuous ,interval
 vis : Visibility (miles)         ,continuous ,ratio
 doy : Day of the Year            ,discrete   ,ratio
+>>>>>>> 11911edd24efd2bf7f09ab2685bef3814145e7cd
