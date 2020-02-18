@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 
 # Load the textDocs.txt as a long string into raw_file:
-with open('../Data/textDocs.txt', 'r') as f:
+with open('./Data/textDocs.txt', 'r') as f:
     raw_file = f.read()
 # raw_file contains sentences seperated by newline characters, 
 # so we split by '\n':
