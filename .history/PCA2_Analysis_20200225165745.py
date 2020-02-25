@@ -7,8 +7,8 @@ from scipy.linalg import svd
 
 # Subtract mean value from data
 # Normalize / standardize data along columns
-Y = X - np.ones((N, 1))*X.mean(axis=0)
-Y = Y / np.std(Y, axis=0)
+Y = X - np.ones((N,1))*X.mean(axis=0)
+Y = Y / np.std(Y,axis=0)
 
 # PCA by computing SVD of Y
 U, S, V = svd(Y, full_matrices=False)
