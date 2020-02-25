@@ -7,14 +7,15 @@ from scipy.linalg import svd
 import matplotlib.pyplot as plt
 
 
-Y = X - np.ones((N,1))*X.mean(0)
+Y = X - np.ones((N,1))*X.mean(axis=0)
+Y = Y / np.std(Y,axis=0)
 U,S,Vh = svd(Y,full_matrices=False)
 V=Vh.T
 N,M = X.shape
 
 # We saw in 2.1.3 that the first 3 components explaiend more than 90
 # percent of the variance. Let's look at their coefficients:
-pcs = [0,1,2]
+pcs = [0,1,2,3,4]
 legendStrs = ['PC'+str(e+1) for e in pcs]
 c = ['r','g','b']
 bw = .2
