@@ -1,6 +1,6 @@
 # exercise 2.1.3
 # (requires data structures from ex. 2.2.1)
-from ex2_1_1 import *
+from PCA_Import import *
 
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
@@ -28,4 +28,3 @@ plt.legend(['Individual','Cumulative','Threshold'])
 plt.grid()
 plt.show()
 
-print('Ran Exercise 2.1.3')
