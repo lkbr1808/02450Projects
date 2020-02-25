@@ -1,0 +1,10 @@
+ozone : Upland Maximum Ozone :, continuous    , ratio
+vh : Vandenberg 500 mb Height :, discrete     , interval
+wind : Wind Speed (mph) :, continuous         , ratio
+humidity : Humidity (%) :, continuous         , ratio
+temp : Sandburg AFB Temperature :, continuous , interval
+ibh : Inversion Base Height :, continuous     , ratio
+dpg : Daggot Pressure Gradient :, continuous  , interval
+ibt : Inversion Base Temperature :,continuous , interval
+vis : Visibility (miles) :, continuous        , ratio
+doy : Day of the Year :, discrete             , ratio
