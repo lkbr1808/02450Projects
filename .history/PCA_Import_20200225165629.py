@@ -11,10 +11,9 @@ doc = xlrd.open_workbook('data.xlsx').sheet_by_index(0)
 attributeNames = doc.row_values(0, 0, 11)
 
 # Save class (month)
-classLabels = doc.col_values(10, 1, 331)
-classNames = sorted(
-    set(classLabels), key=lambda date: datetime.strptime(date, '%b'))
-classDict = dict(zip(classNames, range(1, 13)))
+classLabels = doc.col_values(10,1,331)
+classNames = sorted(set(classLabels), key = lambda date: datetime.strptime(date, '%b'))
+classDict = dict(zip(classNames, range(1,13)))
 
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
