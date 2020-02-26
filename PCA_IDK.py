@@ -1,10 +1,8 @@
-# exercise 2.2.4
-
-# (requires data structures from ex. 2.2.1)
-from PCA_Import import *
-
 from scipy.linalg import svd
 import matplotlib.pyplot as plt
+
+# Import data from other script, data matrix is named X
+from script_Import import *
 
 
 Y = X - np.ones((N,1))*X.mean(axis=0)
