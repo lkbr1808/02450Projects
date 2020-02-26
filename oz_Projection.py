@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
 # Import data from other script, data matrix is called X
-from script_Import import *
+from oz_Import import *
 
 # Subtract mean value from data
 # Normalize / standardize data along columns
@@ -10,7 +10,7 @@ Xc = X - np.ones((N, 1))*X.mean(axis=0)
 Xc = Xc / np.std(Xc, axis=0)
 
 # Number of principal components for reconstruction
-K = 5
+K = 3
 
 # PCA by computing SVD of Y
 U,S,V = svd(Xc,full_matrices=False)

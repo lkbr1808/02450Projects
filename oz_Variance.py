@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
 # Import data from other script, data matrix is named X
-from script_Import import *
+from oz_Import import *
 
 # Subtract mean value from data
 # Normalize / standardize data along columns

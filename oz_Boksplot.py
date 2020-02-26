@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 # Import data from other script, data matrix is called X
-from script_Import import *
+from oz_Import import *
 
 plots = [None] * 9
 for i in range(1):
