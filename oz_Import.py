@@ -17,6 +17,7 @@ classDict = dict(zip(classNames, range(1, 13)))
 
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
+print(y)
 
 # Load data into numpy array
 X = np.empty((330, 9))

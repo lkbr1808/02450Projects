@@ -9,9 +9,6 @@ from oz_Import import *
 Xc = X - np.ones((N, 1))*X.mean(axis=0)
 Xc = Xc / np.std(Xc, axis=0)
 
-# Number of principal components for reconstruction
-K = 3
-
 # PCA by computing SVD of Y
 U,S,V = svd(Xc,full_matrices=False)
 
