@@ -1,9 +1,8 @@
-# exercise 2.1.3
-# (requires data structures from ex. 2.2.1)
-from script_Import import *
-
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
+
+# Import data from other script, data matrix is named X
+from script_Import import *
 
 # Subtract mean value from data
 # Normalize / standardize data along columns
