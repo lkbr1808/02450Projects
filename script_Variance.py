@@ -1,6 +1,6 @@
 # exercise 2.1.3
 # (requires data structures from ex. 2.2.1)
-from PCA_Import import *
+from script_Import import *
 
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
