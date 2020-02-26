@@ -8,7 +8,7 @@ for i in range(1):
     plots[i] = plt.figure()
     plt.boxplot(
         X[:,i],  # i'th column of X is used
-        sym='x') # symbol for whiskers is set to 'x'
+        sym='x') # symbol for outliers is set to 'x'
     plt.title('Boksplot af %s' % attributeNames[i])
     plt.ylabel(attributeUnits[i])
     plt.tick_params(

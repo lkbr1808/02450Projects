@@ -1,14 +1,18 @@
-# exercise 2.1.6
-from PCA_Import import *
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
+# Import data from other script, data matrix is called X
+from script_Import import *
+
+
 r = np.arange(1, X.shape[1]+1)
 plt.bar(r, np.std(X, 0))
-plt.xticks(r, attributeNames)
+plt.xticks(r, attributeNames2)
 plt.ylabel('Standard deviation')
 plt.xlabel('Attributes')
-plt.title('NanoNose: attribute standard deviations')
+plt.title("LA Ozone '76: attribute standard deviations")
+plt.show()
+
 
 # Investigate how standardization affects PCA
 
@@ -20,11 +24,11 @@ plt.title('NanoNose: attribute standard deviations')
 
 
 # Subtract the mean from the data
-Y1 = X - np.ones((N, 1))*X.mean(0)
+Y1 = X - np.ones((N, 1))*X.mean(axis=0)
 
 # Subtract the mean from the data and divide by the attribute standard
 # deviation to obtain a standardized dataset:
-Y2 = X - np.ones((N, 1))*X.mean(0)
+Y2 = X - np.ones((N, 1))*X.mean(axis=0)
 Y2 = Y2*(1/np.std(Y2, 0))
 # Here were utilizing the broadcasting of a row vector to fit the dimensions
 # of Y2

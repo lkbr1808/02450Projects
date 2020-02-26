@@ -7,16 +7,16 @@ import scipy.linalg as linalg
 import numpy as np
 
 # Digits to include in analysis (to include all, n = range(10) )
-n = [0,1]
+n = range(10)
 # Number of principal components for reconstruction
 K = 16
 # Digits to visualize
-nD = range(6);
+nD = range(10)
 
 
 # Load Matlab data file to python dict structure
 # and extract variables of interest
-traindata = loadmat('../Data/zipdata.mat')['traindata']
+traindata = loadmat('./Data/zipdata.mat')['traindata']
 X = traindata[:,1:]
 y = traindata[:,0]
 
@@ -54,10 +54,11 @@ Z = Xc @ V
 # Plot variance explained
 figure()
 plot(rho,'o-')
-title('Variance explained by principal components');
-xlabel('Principal component');
-ylabel('Variance explained value');
+title('Variance explained by principal components')
+xlabel('Principal component')
+ylabel('Variance explained value')
 
+print(class_mask)
 
 # Plot PCA of the data
 f = figure()
@@ -70,6 +71,8 @@ legend(classNames)
 xlabel('PC1')
 ylabel('PC2')
 
+show()
+exit()
 
 # Visualize the reconstructed data from the first K principal components
 # Select randomly D digits.
