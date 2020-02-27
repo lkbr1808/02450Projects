@@ -17,8 +17,14 @@ classLabels = doc.col_values(10, 3, 333)
 classNames = sorted(set(classLabels), key=lambda date: datetime.strptime(date, '%b'))
 classDict = dict(zip(classNames, range(1, 13)))
 
+# Save clas (season)
+classLabels2 = doc.col_values(11, 3, 333)
+classNames2 = sorted(set(classLabels2))
+classDict2 = dict(zip(classNames2, range(4)))
+
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
+y2 = np.asarray([classDict2[value] for value in classLabels2])
 
 # Load data into numpy array
 X = np.empty((330, 9))

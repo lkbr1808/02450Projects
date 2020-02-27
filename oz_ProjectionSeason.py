@@ -14,14 +14,13 @@ Z = Y @ V
 
 
 fig = plt.figure()
-colors = list(plt.cm.tab10(np.arange(10))) + ["crimson", "indigo"]
 ax = plt.axes(projection='3d')
 plt.title('Projection')
-for c in range(1,13):
-    class_mask = (y == c)
+for c in range(4):
+    class_mask = (y2 == c)
     #plt.plot(Z[class_mask,0],Z[class_mask,1],'o')
-    ax.scatter3D(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2],color=colors[c-1])
-plt.legend(classNames)
+    ax.scatter3D(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2])
+plt.legend(classNames2)
 plt.xlabel('PC1')
 plt.ylabel('PC2')
 ax.set_zlabel('PC3')
