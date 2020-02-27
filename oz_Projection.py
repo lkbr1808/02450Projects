@@ -1,16 +1,7 @@
-import matplotlib.pyplot as plt
-from scipy.linalg import svd
+from mpl_toolkits import mplot3d
 
-# Import data from other script, data matrix is called X
+# Import data from other script, data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V
 from oz_Import import *
-
-# Subtract mean value from data
-# Normalize / standardize data along columns
-Xc = X - np.ones((N, 1))*X.mean(axis=0)
-Xc = Xc / np.std(Xc, axis=0)
-
-# PCA by computing SVD of Y
-U,S,V = svd(Xc,full_matrices=False)
 
 #U = mat(U)
 V = V.T
@@ -19,14 +10,19 @@ V = V.T
 rho = (S*S) / (S*S).sum() 
 
 # Project data onto principal component space
-Z = Xc @ V
+Z = Y @ V
 
-f = plt.figure()
+fig = plt.figure()
+ax = plt.axes(projection='3d')
 plt.title('Projection')
-for c in range(12):
+for c in range(1,13):
     class_mask = (y == c)
-    plt.plot(Z[class_mask,0], Z[class_mask,1], 'o')
+    # for i in range(5):
+    #     plt.plot(Z[class_mask,i])
+    #plt.plot(Z[class_mask,0],Z[class_mask,1],'o')
+    ax.scatter3D(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2])
 plt.legend(classNames)
 plt.xlabel('PC1')
 plt.ylabel('PC2')
+ax.set_zlabel('PC3')
 plt.show()

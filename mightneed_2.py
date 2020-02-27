@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
 # Import data from other script, data matrix is called X
-from script_Import import *
+from oz_Import import *
 
 
 r = np.arange(1, X.shape[1]+1)
@@ -36,7 +36,7 @@ Y2 = Y2*(1/np.std(Y2, 0))
 # Store the two in a cell, so we can just loop over them:
 Ys = [Y1, Y2]
 titles = ['Zero-mean', 'Zero-mean and unit variance']
-threshold = 0.9
+threshold = 0.8
 # Choose two PCs to plot (the projection)
 i = 0
 j = 1
@@ -78,7 +78,7 @@ for k in range(2):
     plt.subplot(nrows, ncols,  3+k)
     for att in range(V.shape[1]):
         plt.arrow(0, 0, V[att, i], V[att, j])
-        plt.text(V[att, i], V[att, j], attributeNames[att])
+        plt.text(V[att, i], V[att, j], attributeNames2[att])
     plt.xlim([-1, 1])
     plt.ylim([-1, 1])
     plt.xlabel('PC'+str(i+1))
