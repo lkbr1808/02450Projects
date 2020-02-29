@@ -4,6 +4,7 @@ from oz_Import import *
 V=V.T
 N,M = X.shape
 
+
 # We saw that we need the first 3 components explaiend more than 80 percent of variance
 pcs = [0,1,2]
 legendStrs = ['PC'+str(e+1) for e in pcs]
