@@ -1,7 +1,6 @@
 # Exercise 4.2.5
 
-from matplotlib.pyplot import (figure, hold, subplot, plot, xlabel, ylabel, 
-                               xticks, yticks,legend,show)
+from matplotlib.pyplot import (figure, hold, subplot, plot, xlabel, ylabel, xticks, yticks,legend,show)
 
 # requires data from exercise 4.2.1
 from ex4_2_1 import *

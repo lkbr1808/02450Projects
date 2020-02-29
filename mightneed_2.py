@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
-# Import data from other script, data matrix is called X
+# Import data from other script, data matrix is called X, standardized and normalized is Y, and components of svd are U,S,V
 from oz_Import import *
 
 

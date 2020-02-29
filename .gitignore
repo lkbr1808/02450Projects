@@ -2,4 +2,5 @@
 .vscode/
 .venv/
 Scripts/
-venv/
+.history/
+__pycache__/

@@ -4,7 +4,7 @@ from oz_Import import *
 # Compute variance explained by principal components
 rho = (S*S) / (S*S).sum()
 
-threshold = 0.8
+threshold = 0.9
 
 # Plot variance explained
 plt.figure()

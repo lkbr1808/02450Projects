@@ -3,13 +3,12 @@ from oz_Import import *
 
 # Draw the plots
 plt.boxplot(Y)
-r = np.arange(1, X.shape[1]+1)
-plt.xticks(r, attributeNames2)
+plt.xticks(range(1,11), attributeNames2)
 plt.show()
 
 ## Uncomment below for individual, unstandardized boxplots. Chance X to Y for standardized
-# plots = [None] * 9
-# for i in range(9):
+# plots = [None] * 10
+# for i in range(10):
 #     plots[i] = plt.figure()
 #     plt.boxplot(
 #         X[:,i],  # i'th column of X is used

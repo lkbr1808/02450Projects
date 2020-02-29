@@ -27,14 +27,15 @@ y = np.asarray([classDict[value] for value in classLabels])
 y2 = np.asarray([classDict2[value] for value in classLabels2])
 
 # Load data into numpy array
-X = np.empty((330, 9))
-for i, col_id in enumerate(range(9)):
+X = np.empty((330, 10))
+for i, col_id in enumerate(range(10)):
     X[:, i] = np.asarray(doc.col_values(col_id, 3, 333))
 
 # Compute values of N, M and C.
 N = len(y)
 M = len(attributeNames)
 C = len(classNames)
+C2 = len(classNames2)
 
 # Subtract mean value from data
 # Normalize / standardize data along columns
