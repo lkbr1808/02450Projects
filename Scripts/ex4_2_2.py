@@ -6,7 +6,8 @@ import numpy as np
 from ex4_2_1 import *
 
 figure(figsize=(8,7))
-u = np.floor(np.sqrt(M)); v = np.ceil(float(M)/u)
+u = np.floor(np.sqrt(M))
+v = np.ceil(float(M)/u)
 for i in range(M):
     subplot(u,v,i+1)
     hist(X[:,i], color=(0.2, 0.8-i*0.2, 0.4))

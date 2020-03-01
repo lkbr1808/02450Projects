@@ -33,7 +33,7 @@ for i, col_id in enumerate(range(10)):
 
 # Compute values of N, M and C.
 N = len(y)
-M = len(attributeNames)
+M = len(attributeNames)-1
 C = len(classNames)
 C2 = len(classNames2)
 
@@ -46,3 +46,5 @@ Y = Y / Y_std
 
 # PCA by computing SVD of Y
 U,S,V = svd(Y,full_matrices=False)
+
+print(X.shape)

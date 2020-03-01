@@ -1,5 +1,3 @@
-from scipy.stats import zscore
-
 # Import data from other script, standardized data matrix is named Y 
 from oz_Import import *
 
