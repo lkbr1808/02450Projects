@@ -1,17 +1,7 @@
 from mpl_toolkits import mplot3d
 
-# Import data from other script, data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V
-from oz_Import import *
-
-#U = mat(U)
-V = V.T
-
-# Compute variance explained by principal components
-rho = (S*S) / (S*S).sum() 
-
-# Project data onto principal component space
-Z = Y @ V
-
+# Import data from other script, projected data matrix is named Z
+from oz_PCA import *
 
 fig = plt.figure()
 colors = list(plt.cm.tab10(np.arange(10))) + ["crimson", "indigo"]

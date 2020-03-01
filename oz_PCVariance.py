@@ -1,8 +1,5 @@
-# Import data from other script, data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V
-from oz_Import import *
-
-# Compute variance explained by principal components
-rho = (S*S) / (S*S).sum()
+# Import data from other script, projected data matrix is named Z
+from oz_PCA import *
 
 threshold = 0.9
 
