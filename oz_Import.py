@@ -9,8 +9,8 @@ doc = xlrd.open_workbook('data.xlsx').sheet_by_index(0)
 
 # Save attribute names
 attributeNames = doc.row_values(0, 0, 11)
-attributeNames2 = doc.row_values(1,0,11)
-attributeUnits = doc.row_values(2,0,11)
+attributeNames2 = doc.row_values(1, 0, 11)
+attributeUnits = doc.row_values(2, 0, 11)
 
 # Save class (month)
 classLabels = doc.col_values(10, 3, 333)

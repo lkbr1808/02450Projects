@@ -1,9 +1,5 @@
-# Import data from other script, data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V
-from oz_Import import *
-
-V=V.T
-N,M = X.shape
-
+# Import data from other script, projected data matrix is named Z
+from oz_PCA import *
 
 # We saw that we need the first 3 components explaiend more than 80 percent of variance
 pcs = [0,1,2]
