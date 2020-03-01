@@ -26,5 +26,3 @@ for m1 in range(PCs_needed):
 plt.legend(classNames2)
 
 plt.show()
-
-print('Ran Exercise 4.2.5')

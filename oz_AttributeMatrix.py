@@ -21,5 +21,3 @@ for m1 in range(M):
 plt.legend(classNames2)
 
 plt.show()
-
-print('Ran Exercise 4.2.5')

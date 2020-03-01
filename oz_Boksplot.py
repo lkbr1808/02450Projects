@@ -10,5 +10,3 @@ for c in range(C2):
     plt.xticks(range(1,M+1),attributeNames2, rotation=-45)
 
 plt.show()
-
-print('Ran Exercise 4.2.4')

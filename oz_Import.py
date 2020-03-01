@@ -46,5 +46,3 @@ Y = Y / Y_std
 
 # PCA by computing SVD of Y
 U,S,V = svd(Y,full_matrices=False)
-
-print(X.shape)
