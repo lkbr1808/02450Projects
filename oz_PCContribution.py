@@ -2,8 +2,7 @@
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-# We saw that we need the first 3 components explaiend more than 80 percent of variance
-pcs = [0,1,2]
+pcs = [0,1,2,3,4]
 legendStrs = ['PC'+str(e+1) for e in pcs]
 c = ['r', 'g', 'b']
 bw = .2
@@ -14,6 +13,6 @@ plt.xticks(r+bw, attributeNames2)
 plt.xlabel('Attributes')
 plt.ylabel('Component coefficients')
 plt.legend(legendStrs)
-plt.grid()
+
 plt.title("LA Ozone '76: PCA Component Coefficients")
 plt.show()
