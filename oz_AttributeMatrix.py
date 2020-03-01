@@ -1,5 +1,6 @@
-# Import data from other script, standardized data matrix is named Y 
-from oz_Import import *
+# Import data from other script,
+# data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
+from ImportData import *
 
 plt.figure()
 for m1 in range(M):

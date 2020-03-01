@@ -1,5 +1,6 @@
-# Import data from other script, projected data matrix is named Z
-from oz_PCA import *
+# Import data from other script,
+# data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
+from ImportData import *
 
 # We saw that we need the first 3 components explaiend more than 80 percent of variance
 pcs = [0,1,2]

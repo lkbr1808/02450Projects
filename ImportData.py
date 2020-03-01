@@ -46,3 +46,12 @@ Y = Y / Y_std
 
 # PCA by computing SVD of Y
 U,S,V = svd(Y,full_matrices=False)
+
+#U = mat(U)
+V = V.T
+
+# Compute variance explained by principal components
+rho = (S*S) / (S*S).sum() 
+
+# Project data onto principal component space
+Z = Y @ V

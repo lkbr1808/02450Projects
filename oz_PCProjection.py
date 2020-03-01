@@ -1,8 +1,8 @@
 from mpl_toolkits import mplot3d
 
-# Import data from other script, projected data matrix is named Z
-from oz_PCA import *
-
+# Import data from other script,
+# data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
+from ImportData import *
 
 fig = plt.figure()
 ax = plt.axes(projection='3d')
