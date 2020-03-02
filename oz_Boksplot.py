@@ -11,4 +11,6 @@ for c in range(C):
     plt.xticks(range(1, M-2), attributeNames2[:9], rotation=-45)
     plt.ylim(top=7.2, bottom=-4)
 
-plt.savefig("fig_Boxplot", dpi=500, transparent=True)
+plt.suptitle("Box plot", fontsize = "x-large")
+
+plt.savefig("figs/fig_Boxplot", dpi=300, transparent=True)

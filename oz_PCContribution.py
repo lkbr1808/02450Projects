@@ -17,6 +17,6 @@ plt.xlabel('Attributes')
 plt.ylabel('Component coefficients')
 plt.legend(legendStrs)
 
-plt.title("LA Ozone '76: PCA Component Coefficients")
+plt.title("PCA Component Coefficients", fontsize="x-large")
 
-plt.savefig("fig_PCContribtuion", dpi=500, transparent=True)
+plt.savefig("figs/fig_PCContribtuion", dpi=300, transparent=True)

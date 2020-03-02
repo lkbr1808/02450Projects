@@ -8,7 +8,8 @@ plt.imshow(Y[:, :9], interpolation='none', aspect=(10./N), cmap=plt.cm.gray)
 plt.xticks(range(9), attributeNames2, rotation=-45)
 plt.xlabel('Attributes')
 plt.ylabel('Data objects')
-plt.title("La Ozone '76 data matrix")
 plt.colorbar()
 
-plt.savefig("fig_DataMatrix", dpi=500, transparent=True)
+plt.title("Normalised data matrix", fontsize="x-large")
+
+plt.savefig("figs/fig_DataMatrix", dpi=300, transparent=True)

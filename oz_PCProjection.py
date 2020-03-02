@@ -6,7 +6,6 @@ from ImportData import *
 
 plt.figure(figsize=(18, 10))
 ax = plt.axes(projection='3d')
-plt.title('Projection')
 for c in range(C):
     class_mask = (y == c)
     # plt.plot(Z[class_mask,0],Z[class_mask,1],'o')
@@ -16,4 +15,6 @@ plt.xlabel('PC1')
 plt.ylabel('PC2')
 ax.set_zlabel('PC3')
 
-plt.savefig("fig_PCProjection", dpi=500, transparent=True)
+plt.suptitle('Projection to 3D space', fontsize="x-large")
+
+plt.savefig("figs/fig_PCProjection", dpi=300, transparent=True)

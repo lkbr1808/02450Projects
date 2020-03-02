@@ -16,4 +16,6 @@ plt.ylabel('Data objects')
 plt.title("La Ozone '76 data matrix")
 plt.colorbar()
 
-plt.savefig("fig_PCDataMatrix˚", dpi=500, transparent=True)
+plt.title("Data matrix", fontsize="x-large")
+
+plt.savefig("figs/fig_PCDataMatrix˚", dpi=300, transparent=True)

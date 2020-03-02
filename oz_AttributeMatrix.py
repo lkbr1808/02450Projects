@@ -3,6 +3,7 @@
 from ImportData import *
 
 plt.figure(figsize=(18, 10))
+plt.suptitle("Relation between attributes", fontsize = "x-large")
 
 for m1 in range(M-C):
     for m2 in range(M-C):
@@ -24,5 +25,4 @@ for m1 in range(M-C):
 plt.legend(classNames, bbox_to_anchor=(1.05, 1.11),
            loc='upper left', borderaxespad=0.)
 
-
-plt.savefig("fig_AttributeMatrix", dpi=500, transparent=True)
+plt.savefig("figs/fig_AttributeMatrix", dpi=300, transparent=True)
