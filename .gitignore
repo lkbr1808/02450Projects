@@ -1,6 +1,5 @@
 02450.code-workspace
 .vscode/
-.venv/
 Scripts/
 .history/
 __pycache__/
