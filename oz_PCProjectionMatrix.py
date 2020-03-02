@@ -4,7 +4,7 @@ from ImportData import *
 
 PCs_needed = 6
 
-plt.figure()
+plt.figure(figsize=(18,10))
 for m1 in range(PCs_needed):
     for m2 in range(PCs_needed):
         plt.subplot(PCs_needed, PCs_needed, m1*PCs_needed + m2 + 1)
@@ -23,4 +23,4 @@ for m1 in range(PCs_needed):
             #xlim(0,X.max()*1.1)
 plt.legend(classNames, bbox_to_anchor=(1.05, 1.11), loc='upper left', borderaxespad=0.)
 
-plt.show()
+plt.savefig("fig_PCProjectionMatrix", dpi=500, transparent=True)

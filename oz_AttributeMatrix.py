@@ -2,7 +2,8 @@
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-plt.figure()
+plt.figure(figsize=(18, 10))
+
 for m1 in range(M-C):
     for m2 in range(M-C):
         plt.subplot(M-C, M-C, m1*(M-C) + m2 + 1)
@@ -20,6 +21,8 @@ for m1 in range(M-C):
                 plt.yticks([])
             # ylim(0,X.max()*1.1)
             # xlim(0,X.max()*1.1)
-plt.legend(classNames)
+plt.legend(classNames, bbox_to_anchor=(1.05, 1.11),
+           loc='upper left', borderaxespad=0.)
 
-plt.show()
+
+plt.savefig("fig_AttributeMatrix", dpi=500, transparent=True)

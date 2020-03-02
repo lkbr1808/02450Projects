@@ -7,6 +7,9 @@ PCs_needed = 6
 legendStrs = ['PC'+str(e+1) for e in range(PCs_needed)]
 bw = .12
 r = np.arange(1, M+1)
+
+plt.figure(figsize=(18, 10))
+
 for i in range(PCs_needed):
     plt.bar(r+i*bw, V[:, i], width=bw)
 plt.xticks(r+bw, attributeNames2)
@@ -15,4 +18,5 @@ plt.ylabel('Component coefficients')
 plt.legend(legendStrs)
 
 plt.title("LA Ozone '76: PCA Component Coefficients")
-plt.show()
+
+plt.savefig("fig_PCContribtuion", dpi=500, transparent=True)
