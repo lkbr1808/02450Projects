@@ -32,11 +32,6 @@ for c in range(4):
     X[class_mask,9+c] = 1
     X[class_mask2,9+c] = 0
 
-print(X.shape)
-print(X)
-exit()
-
-
 # Compute values of N, M and C.
 N = len(y)
 M = len(attributeNames)-1
