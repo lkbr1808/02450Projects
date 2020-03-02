@@ -32,7 +32,6 @@ for c in range(4):
     X[class_mask, 8+c] = 1
     X[class_mask2, 8+c] = 0
 
-
 # Compute values of N, M and C.
 N = len(y)
 M = len(attributeNames)-1
