@@ -1110,6 +1110,6 @@ def windows_graphviz_call(fname, cur_dir, path_to_graphviz):
                 '\\' + fname + '.gvz '+\
                 '-o' + cur_dir + \
                 '\\' + fname +'.png' +\
-                ' -Gdpi=300=600'
+                ' -Gdpi=600'
     call(call_str)
     
