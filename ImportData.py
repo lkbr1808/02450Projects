@@ -29,6 +29,7 @@ for i, col_id in enumerate(range(8)):
 for c in range(4):
     class_mask = (c==y)
     X[class_mask,9+c] = 1
+    X[(not class_mask),9+c] = 0
 
 print(X.shape)
 print(X)
