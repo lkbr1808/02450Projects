@@ -12,30 +12,33 @@ attributeNames = doc.row_values(0, 0, 11)
 attributeNames2 = doc.row_values(1, 0, 11)
 attributeUnits = doc.row_values(2, 0, 11)
 
-# Save class (month)
-classLabels = doc.col_values(10, 3, 333)
-classNames = sorted(set(classLabels), key=lambda date: datetime.strptime(date, '%b'))
-classDict = dict(zip(classNames, range(1, 13)))
-
 # Save clas (season)
-classLabels2 = doc.col_values(11, 3, 333)
-classNames2 = sorted(set(classLabels2))
-classDict2 = dict(zip(classNames2, range(4)))
+classLabels = doc.col_values(9, 3, 333)
+classNames = sorted(set(classLabels))
+classDict = dict(zip(classNames, range(4)))
 
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
-y2 = np.asarray([classDict2[value] for value in classLabels2])
 
 # Load data into numpy array
-X = np.empty((330, 10))
-for i, col_id in enumerate(range(10)):
+X = np.empty((330, 13))
+for i, col_id in enumerate(range(8)):
     X[:, i] = np.asarray(doc.col_values(col_id, 3, 333))
+
+# 1-out-of-k
+for c in range(4):
+    class_mask = (c==y)
+    X[class_mask,9+c] = 1
+
+print(X.shape)
+print(X)
+exit()
+
 
 # Compute values of N, M and C.
 N = len(y)
 M = len(attributeNames)-1
 C = len(classNames)
-C2 = len(classNames2)
 
 # Subtract mean value from data
 # Normalize / standardize data along columns
