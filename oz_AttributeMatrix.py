@@ -1,6 +1,6 @@
 # Import data from other script,
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
-from ImportData import *
+from importData import *
 
 plt.figure(figsize=(18, 10))
 plt.suptitle("Relation between attributes", fontsize = "x-large")
@@ -20,9 +20,7 @@ for m1 in range(M-C):
                 plt.ylabel(attributeNames2[m1], rotation=0)
             else:
                 plt.yticks([])
-            # ylim(0,X.max()*1.1)
-            # xlim(0,X.max()*1.1)
-plt.legend(classNames, bbox_to_anchor=(1.05, 1.11),
-           loc='upper left', borderaxespad=0.)
+
+plt.legend(classNames, bbox_to_anchor=(1.05, 1.11), loc='upper left', borderaxespad=0.)
 
 plt.savefig("figs/fig_AttributeMatrix", dpi=300, transparent=True)

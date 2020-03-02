@@ -2,7 +2,7 @@ from mpl_toolkits import mplot3d
 
 # Import data from other script,
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
-from ImportData import *
+from importData import *
 
 plt.figure(figsize=(18, 10))
 ax = plt.axes(projection='3d')

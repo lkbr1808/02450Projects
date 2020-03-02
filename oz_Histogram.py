@@ -1,6 +1,6 @@
 # Import data from other script,
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
-from ImportData import *
+from importData import *
 
 plt.figure(figsize=(18, 10))
 for m in range(M-4):
@@ -8,7 +8,7 @@ for m in range(M-4):
     plt.hist(X[:, m])
     plt.title(attributeNames2[m])
     plt.ylim(top=120, bottom=0)
-    if m != 0:
+    if m != 0: # Only the first plot will have numbers on y-axis
         plt.yticks([])
 
 plt.suptitle("Histogram", fontsize="x-large")

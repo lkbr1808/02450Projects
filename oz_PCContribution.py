@@ -1,6 +1,6 @@
 # Import data from other script,
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
-from ImportData import *
+from importData import *
 
 PCs_needed = 6
 
@@ -12,6 +12,7 @@ plt.figure(figsize=(18, 10))
 
 for i in range(PCs_needed):
     plt.bar(r+i*bw, V[:, i], width=bw)
+
 plt.xticks(r+bw, attributeNames2)
 plt.xlabel('Attributes')
 plt.ylabel('Component coefficients')
