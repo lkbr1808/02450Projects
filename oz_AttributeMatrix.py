@@ -6,8 +6,8 @@ plt.figure()
 for m1 in range(M):
     for m2 in range(M):
         plt.subplot(M, M, m1*M + m2 + 1)
-        for c in range(C):
-            class_mask = (y==c)
+        for c in range(C2):
+            class_mask = (y2==c)
             plt.plot(np.array(Y[class_mask,m2]), np.array(Y[class_mask,m1]), '.')
             if m1==M-1:
                 plt.xlabel(attributeNames2[m2], rotation=-45)
@@ -19,6 +19,6 @@ for m1 in range(M):
                 plt.yticks([])
             #ylim(0,X.max()*1.1)
             #xlim(0,X.max()*1.1)
-plt.legend(classNames)
+plt.legend(classNames2)
 
 plt.show()
