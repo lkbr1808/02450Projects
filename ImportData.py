@@ -17,6 +17,10 @@ classLabels = doc.col_values(9, 3, 333)
 classNames = sorted(set(classLabels))
 classDict = dict(zip(classNames, range(4)))
 
+# Add classes to attributeNames
+attributeNames = attributeNames + classLabels
+attributeNames2 = attributeNames2 + classLabels
+
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
 
@@ -34,7 +38,7 @@ for c in range(4):
 
 # Compute values of N, M and C.
 N = len(y)
-M = len(attributeNames)-1
+M = len(attributeNames)
 C = len(classNames)
 
 # Subtract mean value from data

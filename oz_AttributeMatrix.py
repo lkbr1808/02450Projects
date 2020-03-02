@@ -19,6 +19,6 @@ for m1 in range(M):
                 plt.yticks([])
             #ylim(0,X.max()*1.1)
             #xlim(0,X.max()*1.1)
-plt.legend(classNames2)
+plt.legend(classNames)
 
 plt.show()
