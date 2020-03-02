@@ -2,8 +2,6 @@
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-# This one won't work
-
 PCs_needed = 6
 
 legendStrs = ['PC'+str(e+1) for e in range(PCs_needed)]

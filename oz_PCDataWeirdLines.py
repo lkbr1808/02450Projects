@@ -4,7 +4,7 @@ from ImportData import *
 
 PCs_needed = 6
 
-PC_list = ["PC%d" % i for i in range(PCs_needed)]
+PC_list = ["PC%d" % i for i in range(1,PCs_needed+1)]
 Z2 = np.transpose(Z)
 
 colors = ['red','magenta','indigo','blue']

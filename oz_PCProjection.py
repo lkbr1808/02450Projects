@@ -4,8 +4,6 @@ from mpl_toolkits import mplot3d
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-# This one won't work
-
 fig = plt.figure()
 ax = plt.axes(projection='3d')
 plt.title('Projection')
