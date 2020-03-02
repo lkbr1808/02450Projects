@@ -38,7 +38,7 @@ for c in range(4):
 
 # Compute values of N, M and C.
 N = len(y)
-M = len(attributeNames)
+M = len(attributeNames)-4
 C = len(classNames)
 
 # Subtract mean value from data
