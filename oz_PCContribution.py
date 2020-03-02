@@ -2,9 +2,8 @@
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-pcs = [0,1,2,3,4]
+pcs = [0,1,2,3,4,5]
 legendStrs = ['PC'+str(e+1) for e in pcs]
-c = ['r', 'g', 'b']
 bw = .2
 r = np.arange(1, M+1)
 for i in pcs:

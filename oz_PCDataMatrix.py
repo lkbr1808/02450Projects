@@ -2,9 +2,9 @@
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
 from ImportData import *
 
-PCs_needed = 5
+PCs_needed = 6
 
-PC_list = ["PC%d" % i for i in range(PCs_needed)]
+PC_list = ["PC%d" % i for i in range(1,PCs_needed+1)]
 
 plt.figure()
 plt.imshow(Z[:,range(PCs_needed)], interpolation='none', aspect=(PCs_needed/N), cmap=plt.cm.gray);
