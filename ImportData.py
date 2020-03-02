@@ -28,8 +28,9 @@ for i, col_id in enumerate(range(8)):
 # 1-out-of-k
 for c in range(4):
     class_mask = (c==y)
+    class_mask2 = (c != y)
     X[class_mask,9+c] = 1
-    X[(not class_mask),9+c] = 0
+    X[class_mask2,9+c] = 0
 
 print(X.shape)
 print(X)
