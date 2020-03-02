@@ -21,16 +21,17 @@ classDict = dict(zip(classNames, range(4)))
 y = np.asarray([classDict[value] for value in classLabels])
 
 # Load data into numpy array
-X = np.empty((330, 13))
+X = np.empty((330, 12))
 for i, col_id in enumerate(range(8)):
     X[:, i] = np.asarray(doc.col_values(col_id, 3, 333))
 
 # 1-out-of-k
 for c in range(4):
-    class_mask = (c==y)
+    class_mask = (c == y)
     class_mask2 = (c != y)
-    X[class_mask,9+c] = 1
-    X[class_mask2,9+c] = 0
+    X[class_mask, 8+c] = 1
+    X[class_mask2, 8+c] = 0
+
 
 # Compute values of N, M and C.
 N = len(y)
@@ -41,17 +42,17 @@ C = len(classNames)
 # Normalize / standardize data along columns
 X_mean = X.mean(axis=0)
 Y = X - np.ones((N, 1))*X_mean
-Y_std = np.std(Y,axis=0)
+Y_std = np.std(Y, axis=0)
 Y = Y / Y_std
 
 # PCA by computing SVD of Y
-U,S,V = svd(Y,full_matrices=False)
+U, S, V = svd(Y, full_matrices=False)
 
 #U = mat(U)
 V = V.T
 
 # Compute variance explained by principal components
-rho = (S*S) / (S*S).sum() 
+rho = (S*S) / (S*S).sum()
 
 # Project data onto principal component space
 Z = Y @ V
