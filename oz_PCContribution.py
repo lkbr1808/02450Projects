@@ -5,7 +5,7 @@ from ImportData import *
 PCs_needed = 6
 
 legendStrs = ['PC'+str(e+1) for e in range(PCs_needed)]
-bw = .2
+bw = .12
 r = np.arange(1, M+1)
 for i in range(PCs_needed):
     plt.bar(r+i*bw, V[:, i], width=bw)

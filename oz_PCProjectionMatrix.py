@@ -21,6 +21,6 @@ for m1 in range(PCs_needed):
                 plt.yticks([])
             #ylim(0,X.max()*1.1)
             #xlim(0,X.max()*1.1)
-plt.legend(classNames)
+plt.legend(classNames, bbox_to_anchor=(1.05, 1.11), loc='upper left', borderaxespad=0.)
 
 plt.show()

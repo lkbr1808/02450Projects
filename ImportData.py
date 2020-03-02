@@ -1,6 +1,5 @@
 import numpy as np
 import xlrd
-from datetime import datetime
 from scipy.linalg import svd
 import matplotlib.pyplot as plt
 
@@ -16,18 +15,19 @@ attributeUnits = doc.row_values(2, 0, 9)
 classLabels = doc.col_values(9, 3, 333)
 classNames = sorted(set(classLabels))
 classDict = dict(zip(classNames, range(4)))
+C = len(classNames)
 
 # Add classes to attributeNames
 attributeNames = attributeNames + classNames
-attributeNames2 = attributeNames2 + classNames
+
+for i in range(C):
+    attributeNames2 = attributeNames2 + [(classNames[i][:3]).lower()]
+
+M = len(attributeNames)
 
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
-
-# Compute values of N, M and C.
 N = len(y)
-M = len(attributeNames)
-C = len(classNames)
 
 # Load data into numpy array
 X = np.empty((330, 13))
@@ -40,7 +40,6 @@ for c in range(C):
     class_mask2 = (c != y)
     X[class_mask, 9+c] = 1
     X[class_mask2, 9+c] = 0
-
 
 # Subtract mean value from data
 # Normalize / standardize data along columns

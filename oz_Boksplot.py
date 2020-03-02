@@ -9,6 +9,6 @@ for c in range(C):
     plt.boxplot(Y[class_mask,:9])
     plt.title('Class: '+classNames[c])
     plt.xticks(range(1,M-2),attributeNames2[:9], rotation=-45)
-    plt.ylim(top=6,bottom=-4)
+    plt.ylim(top=7.2,bottom=-4)
 
 plt.show()
