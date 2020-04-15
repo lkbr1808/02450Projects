@@ -6,7 +6,8 @@ import numpy as np
 
 from importData import *
 
-tempX = np.delete(Z, range(C, M), axis=1)
+# Use vandenberg height and humidity
+tempX = Z[:, [2, 3]]
 tempY = y
 
 test_mask = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 
@@ -30,9 +31,7 @@ test_mask = np.asarray(test_mask)
 ix = test_mask.reshape(tempX.shape[0])
 
 X_train = tempX[ix == 0]
-X_train = X_train[:,:2]
 X_test = tempX[ix == 1]
-X_test = X_test[:,:2]
 
 y_train = tempY[test_mask == 0]
 y_test = tempY[test_mask == 1]
@@ -50,7 +49,8 @@ print('Number of miss-classifications for Multinormal regression:\n\t {0} out of
 predict = lambda x: np.argmax(logreg.predict_proba(x),1)
 plt.figure(2,figsize=(18,10))
 
-visualize_decision_boundary(predict, [X_train, X_test], [y_train, y_test], ['PC1', 'PC2'], classNames)
+visualize_decision_boundary(predict, [X_train, X_test], [y_train, y_test], [attributeNames[1], attributeNames[3]], classNames)
 plt.title('LogReg decision boundaries')
 
-plt.savefig("project2_figs/fig_MultinomialRegression", dpi=300, transparent=True)
+#plt.savefig("project2_figs/fig_MultinomialRegression", dpi=300, transparent=True)
+plt.show()
