@@ -17,4 +17,4 @@ ax.set_zlabel('PC3')
 
 plt.suptitle('Projection to 3D space', fontsize="x-large")
 
-plt.savefig("figs/fig_PCProjection", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_PCProjection", dpi=300, transparent=True)

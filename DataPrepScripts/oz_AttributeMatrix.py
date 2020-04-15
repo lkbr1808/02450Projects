@@ -23,4 +23,4 @@ for m1 in range(M-C):
 
 plt.legend(classNames, bbox_to_anchor=(1.05, 1.11), loc='upper left', borderaxespad=0.)
 
-plt.savefig("figs/fig_AttributeMatrix", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_AttributeMatrix", dpi=300, transparent=True)

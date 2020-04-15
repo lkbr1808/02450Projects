@@ -25,4 +25,4 @@ plt.suptitle("PCA Scatter plot matrix", fontsize="x-large")
 plt.legend(classNames, bbox_to_anchor=(1.05, 1.11), loc='upper left', borderaxespad=0.)
 
 
-plt.savefig("figs/fig_PCProjectionMatrix", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_PCProjectionMatrix", dpi=300, transparent=True)

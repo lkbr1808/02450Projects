@@ -13,4 +13,4 @@ for m in range(M-4):
 
 plt.suptitle("Histogram", fontsize="x-large")
 
-plt.savefig("figs/fig_Histogram", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_Histogram", dpi=300, transparent=True)

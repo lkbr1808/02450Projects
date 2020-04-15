@@ -13,4 +13,4 @@ for c in range(C):
 
 plt.suptitle("Box plot", fontsize = "x-large")
 
-plt.savefig("figs/fig_Boxplot", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_Boxplot", dpi=300, transparent=True)

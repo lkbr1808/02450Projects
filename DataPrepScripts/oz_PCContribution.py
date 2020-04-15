@@ -20,4 +20,4 @@ plt.legend(legendStrs)
 
 plt.title("PCA Component Coefficients", fontsize="x-large")
 
-plt.savefig("figs/fig_PCContribtuion", dpi=300, transparent=True)
+plt.savefig("project1_figs/fig_PCContribtuion", dpi=300, transparent=True)
