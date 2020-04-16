@@ -107,7 +107,7 @@ for train_index, test_index in CV.split(X):
     KNN_errors = np.zeros((fold_N,KNN_L))
     i=0
     for KNN_train_index, KNN_test_index in KNN_CV.split(X_train, y_train):
-        print('Crossvalidation fold: %s/%s' % (i+1,fold_N))    
+        print('KNN Crossvalidation fold: %s/%s' % (i+1,fold_N))    
     
         # extract training and test set for current CV fold
         KNN_X_train = X_train[KNN_train_index,:]
@@ -143,8 +143,8 @@ for train_index, test_index in CV.split(X):
 
 # Display results
 print('\n')
-print(baseline_errorRate)
-print(MR_regStrength)
-print(MR_errorRate)
-print(KNN_K)
-print(KNN_errorRate)
+print("baseline_errorRate:\n\t", baseline_errorRate)
+print("MR_regStrength:\n\t", MR_regStrength)
+print("MR_errorRate:\n\t", MR_errorRate)
+print("KNN_K:\n\t",KNN_K)
+print("KNN_errorRate:\n\t:",KNN_errorRate)

@@ -52,4 +52,7 @@ plt.title('Classification error')
 plt.legend(['Training error','Test error','Test minimum'],loc='upper right')
 plt.ylim([0, 4])
 plt.grid()
+
+plt.savefig("project1_figs/fig_OptimalLambda", dpi=300, transparent=True)
+
 plt.show()    
