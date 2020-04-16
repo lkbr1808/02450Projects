@@ -25,7 +25,7 @@ N, M = X.shape
 
 # Add offset attribute
 X = np.concatenate((np.ones((X.shape[0], 1)), X), 1)
-attributeNames = [u'Offset']+attributeNamesudeny
+attributeNames = [u'Offset']+attributeNames
 M = M+1
 
 # Crossvalidation
@@ -154,4 +154,4 @@ show()
 
 # show()
 
-print('Ran Regression')
+print('Ran Regression part B')
