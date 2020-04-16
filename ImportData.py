@@ -60,4 +60,3 @@ rho = (S*S) / (S*S).sum()
 
 # Project data onto principal component space
 Z = Y @ V
-print("Ran importData.py")
