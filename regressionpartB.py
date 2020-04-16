@@ -4,7 +4,9 @@ import numpy as np
 from scipy.io import loadmat
 import sklearn.linear_model as lm
 from sklearn import model_selection
-from toolbox_02450 import rlr_validate
+import sys
+sys.path.insert(1, "Tools/toolbox_02450")
+from __init__ import rlr_validate
 
 # Import data from other script,
 # data matrix is named X, standardized and normalized is Y, and components of svd are U,S,V, projection is Z
