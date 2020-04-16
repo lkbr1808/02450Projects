@@ -23,7 +23,7 @@ K = 10
 CV = model_selection.KFold(n_splits=K,shuffle=True)
 
 # Create output lists
-Baseline = [None] * K
+baseline_errorRate = [None] * K
 MR_errorRate = [None] * K
 KNN_K = [None] * K
 KNN_errorRate = [None] * K
@@ -50,14 +50,14 @@ for train_index, test_index in CV.split(X):
 
     fold_N, fold_M = X_train.shape
 
-
-
     print('Cross validation fold {0}/{1}'.format(k+1,K))
     print('Train indices: {0}'.format(train_index))
     print('Test indices: {0}'.format(test_index))
 
     #Baseline
-    
+
+    baseline_model = np.bincount(y_train).argmax()
+    baseline_errorRate[k] = np.sum(baseline_model!=y_test)  / len(y_test)
 
     # Multinomial regression
 
@@ -143,6 +143,7 @@ for train_index, test_index in CV.split(X):
 
 # Display results
 print('\n')
+print(baseline_errorRate)
 print(MR_regStrength)
 print(MR_errorRate)
 print(KNN_K)
