@@ -5,17 +5,14 @@ from importData import *
 
 import sklearn.linear_model as lm
 from sklearn import model_selection
+
 from sklearn.neighbors import KNeighborsClassifier, DistanceMetric
+
 import sys
 sys.path.insert(1, "Tools/toolbox_02450")
 from __init__ import feature_selector_lr, bmplot
 
 
-# Load data from matlab file
-# mat_data = loadmat('./Data/body.mat')
-# X = mat_data['X']
-# y = mat_data['y'].squeeze()
-# attributeNames = [name[0] for name in mat_data['attributeNames'][0]]
 X = Y[:,:M-C]
 N, M = X.shape
 
@@ -25,9 +22,13 @@ N, M = X.shape
 K = 10
 CV = model_selection.KFold(n_splits=K,shuffle=True)
 
-multiRegres_errorRate = [None] * K
-KNN_Ks_Used = [None] * K
+# Create output lists
+baseline_errorRate = [None] * K
+MR_errorRate = [None] * K
+KNN_K = [None] * K
 KNN_errorRate = [None] * K
+MR_regStrength = [None] * K
+MR_errorRate = [None] * K
 
 # Initialize variables
 Features = np.zeros((M,K))
@@ -49,24 +50,53 @@ for train_index, test_index in CV.split(X):
 
     fold_N, fold_M = X_train.shape
 
-
-
     print('Cross validation fold {0}/{1}'.format(k+1,K))
     print('Train indices: {0}'.format(train_index))
     print('Test indices: {0}'.format(test_index))
 
     #Baseline
-    
+
+    baseline_model = np.bincount(y_train).argmax()
+    baseline_errorRate[k] = np.sum(baseline_model!=y_test)  / len(y_test)
 
     # Multinomial regression
-    regularization_strength = 1e-5
+
+    K = 20
+    MR_X_train, MR_X_test, MR_y_train, MR_y_test = model_selection.train_test_split(X_train, y_train, test_size=.90, stratify=y_train)
+
+    lambda_interval = np.logspace(-8, 2, 50)
+    train_error_rate = np.zeros(len(lambda_interval))
+    test_error_rate = np.zeros(len(lambda_interval))
+    coefficient_norm = np.zeros(len(lambda_interval))
+
+    for kk in range(0, len(lambda_interval)):
+        mdl = lm.LogisticRegression(penalty='l2', C=1/lambda_interval[kk] )
+        
+        mdl.fit(MR_X_train, MR_y_train)
+
+        y_train_est = mdl.predict(MR_X_train).T
+        y_test_est = mdl.predict(MR_X_test).T
+        
+        train_error_rate[kk] = np.sum(y_train_est != MR_y_train) / len(MR_y_train)
+        test_error_rate[kk] = np.sum(y_test_est != MR_y_test) / len(MR_y_test)
+
+        w_est = mdl.coef_[0] 
+        coefficient_norm[kk] = np.sqrt(np.sum(w_est**2))
+
+    min_error = np.min(test_error_rate)
+    opt_lambda_idx = np.argmin(test_error_rate)
+    opt_lambda = lambda_interval[opt_lambda_idx]
+
+    MR_regStrength[k] = opt_lambda
+    
+    regularization_strength = opt_lambda
     mdl = lm.LogisticRegression(solver='lbfgs', multi_class='multinomial', 
                                 tol=1e-4, random_state=1, 
                                 penalty='l2', C=1/regularization_strength)
     mdl.fit(X_train,y_train)
     y_test_est = mdl.predict(X_test)
 
-    multiRegres_errorRate[k] = np.sum(y_test_est!=y_test)  / len(y_test)
+    MR_errorRate[k] = np.sum(y_test_est!=y_test)  / len(y_test)
 
     # K-nearest neighbors
 
@@ -97,27 +127,24 @@ for train_index, test_index in CV.split(X):
     
     KNN_errors_temp = KNN_errors.sum(axis=1)
 
-    KNN_K = np.argmin(KNN_errors_temp[1:]) + 1
-    KNN_Ks_Used[k] = KNN_K
-    dist=2
-    metric = 'minkowski'
-    metric_params = {} 
+    KNN_K_ = np.argmin(KNN_errors_temp[1:]) + 1
+    KNN_K[k] = KNN_K_
 
-    knclassifier = KNeighborsClassifier(n_neighbors=KNN_K, p=dist, 
-                                    metric=metric,
-                                    metric_params=metric_params)
+    knclassifier = KNeighborsClassifier(n_neighbors=KNN_K_, p=2, 
+                                    metric='minkowski',
+                                    metric_params={})
     knclassifier.fit(X_train, y_train)
     y_est = knclassifier.predict(X_test)
 
     KNN_errorRate[k] = np.sum(knclassifier.predict(X_test)!=y_test)  / len(y_test)
-
-
 
     k+=1
 
 
 # Display results
 print('\n')
-print(multiRegres_errorRate)
+print(baseline_errorRate)
+print(MR_regStrength)
+print(MR_errorRate)
+print(KNN_K)
 print(KNN_errorRate)
-print(KNN_Ks_Used)
