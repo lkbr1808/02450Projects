@@ -1,4 +1,5 @@
 import sklearn.linear_model as lm
+
 import sys
 sys.path.insert(1, "Tools/toolbox_02450")
 from __init__ import dbplotf, train_neural_net, visualize_decision_boundary
@@ -45,7 +46,7 @@ X_test = (X_test - mu) / sigma
 
 
 
-    # Fit multinomial logistic regression model
+# Fit multinomial logistic regression model
 
 regularization_strength = 1e-5
     #Try a high strength, e.g. 1e5, especially for synth2, synth3 and synth4
