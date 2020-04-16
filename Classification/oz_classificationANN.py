@@ -71,8 +71,9 @@ e = (y_test_est != y_test)
 print('Number of miss-classifications for ANN:\n\t {0} out of {1}'.format(sum(e),len(e)))
 
 predict = lambda x:  (torch.max(net(torch.tensor(x, dtype=torch.float)), dim=1)[1]).data.numpy() 
-plt.figure(1,figsize=(3,3))
+plt.figure(1,figsize=(18,10))
 visualize_decision_boundary(predict, [X_train, X_test], [y_train, y_test], [attributeNames[1], attributeNames[3]], classNames)
 plt.title('ANN decision boundaries')
 
 plt.show()
+plt.savefig("project2_figs/fig_ANNclassification", dpi=300, transparent=True)

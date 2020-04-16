@@ -58,11 +58,12 @@ y_test_est = mdl.predict(X_test)
 test_error_rate = np.sum(y_test_est!=y_test) / len(y_test)
 
 predict = lambda x: np.argmax(mdl.predict_proba(x),1)
-plt.figure(2,figsize=(9,9))
+plt.figure(2,figsize=(18,10))
 visualize_decision_boundary(predict, [X_train, X_test], [y_train, y_test], attributeNames, classNames)
 plt.title('LogReg decision boundaries')
 
     # Number of miss-classifications
 print('Number of miss-classifications for Multinormal regression:\n\t {0} out of {1}'.format(np.sum(mdl.predict(X_test)!=y_test),len(y_test)))
 
+plt.savefig("project2_figs/fig_MultinomialRegression", dpi=300, transparent=True)
 plt.show()
