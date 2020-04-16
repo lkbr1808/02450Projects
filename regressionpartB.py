@@ -15,7 +15,7 @@ from importData import *
 # Split dataset into features and target vector
 ozone_idx = attributeNames.index('Upland Maximum Ozone')
 
-# Load y and X
+# Load y and X 
 y = Y[:, ozone_idx]
 X_cols = list(range(0, ozone_idx)) + \
     list(range(ozone_idx+1, len(attributeNames)))
