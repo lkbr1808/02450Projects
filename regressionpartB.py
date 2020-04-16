@@ -16,10 +16,10 @@ from importData import *
 ozone_idx = attributeNames.index('Upland Maximum Ozone')
 
 # Load y and X
-y = X[:, ozone_idx]
+y = Y[:, ozone_idx]
 X_cols = list(range(0, ozone_idx)) + \
     list(range(ozone_idx+1, len(attributeNames)))
-X = X[:, X_cols]
+X = Y[:, X_cols]
 N, M = X.shape
 
 
@@ -27,7 +27,6 @@ N, M = X.shape
 X = np.concatenate((np.ones((X.shape[0], 1)), X), 1)
 attributeNames = [u'Offset']+attributeNamesudeny
 M = M+1
-print(X)
 
 # Crossvalidation
 # Create crossvalidation partition for evaluation
@@ -55,7 +54,6 @@ w_noreg = np.empty((M, K))
 k = 0
 for train_index, test_index in CV.split(X, y):
     # extract training and test set for current CV fold
-    print(CV.split(X, y))
     X_train = X[train_index]
     y_train = y[train_index]
     X_test = X[test_index]
@@ -64,9 +62,6 @@ for train_index, test_index in CV.split(X, y):
 
     opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda = rlr_validate(
         X_train, y_train, lambdas, internal_cross_validation)
-    print("opt_lambda")
-    print(opt_lambda)
-    print(test_err_vs_lambda)
     # Standardize outer fold based on training set, and save the mean and standard
     # deviations since they're part of the model (they would be needed for
     # making new predictions) - for brevity we won't always store these in the scripts
@@ -107,17 +102,6 @@ for train_index, test_index in CV.split(X, y):
     #Error_train[k] = np.square(y_train-m.predict(X_train)).sum()/y_train.shape[0]
     #Error_test[k] = np.square(y_test-m.predict(X_test)).sum()/y_test.shape[0]
 
-    # Display the results for the last cross-validation fold
-    if k == K-1:
-        figure(k, figsize=(12, 8))
-        title('Optimal lambda: 1e{0}'.format(np.log10(opt_lambda)))
-        loglog(lambdas, train_err_vs_lambda.T, 'b.-',
-               lambdas, test_err_vs_lambda.T, 'r.-')
-        xlabel('Regularization factor')
-        ylabel('Squared error (crossvalidation)')
-        legend(['Train error', 'Validation error'])
-        grid()
-
     # To inspect the used indices, use these print statements
     #print('Cross validation fold {0}/{1}:'.format(k+1,K))
     #print('Train indices: {0}'.format(train_index))
@@ -142,23 +126,7 @@ for train_index, test_index in CV.split(X, y):
     k += 1
 show()
 
-# Display results
-#print('Linear regression without feature selection:')
-#print('- Training error: {0}'.format(Error_train.mean()))
-#print('- Test error:     {0}'.format(Error_test.mean()))
-#print('- R^2 train:     {0}'.format((Error_train_nofeatures.sum()-Error_train.sum())/Error_train_nofeatures.sum()))
-#print('- R^2 test:     {0}\n'.format((Error_test_nofeatures.sum()-Error_test.sum())/Error_test_nofeatures.sum()))
-#print('Regularized linear regression:')
-#print('- Training error: {0}'.format(Error_train_rlr.mean()))
-#print('- Test error:     {0}'.format(Error_test_rlr.mean()))
-#print('- R^2 train:     {0}'.format((Error_train_nofeatures.sum()-Error_train_rlr.sum())/Error_train_nofeatures.sum()))
-#print('- R^2 test:     {0}\n'.format((Error_test_nofeatures.sum()-Error_test_rlr.sum())/Error_test_nofeatures.sum()))
 
-
-#print('Weights in last fold:')
-# for m in range(M):
-#    print('{:>15} {:>15}'.format(attributeNames[m], np.round(w_rlr[m,-1],2)))
-#print('Ran Exercise 8.1.1')
 
 
 
