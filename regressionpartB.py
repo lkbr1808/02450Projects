@@ -92,6 +92,7 @@ for train_index, test_index in CV.split(X, y):
 
     # Estimate weights for unregularized linear regression, on entire training set
     w_noreg[:, k] = np.linalg.solve(XtX, Xty).squeeze()
+<<<<<<< HEAD
     # Compute mean squared error without regularization
     Error_train[k] = np.square(
         y_train-X_train @ w_noreg[:, k]).sum(axis=0)/y_train.shape[0]
@@ -101,6 +102,18 @@ for train_index, test_index in CV.split(X, y):
     #m = lm.LinearRegression().fit(X_train, y_train)
     #Error_train[k] = np.square(y_train-m.predict(X_train)).sum()/y_train.shape[0]
     #Error_test[k] = np.square(y_test-m.predict(X_test)).sum()/y_test.shape[0]
+=======
+
+    # Compute mean squared error without regularization
+    #Error_train[k] = np.square(
+    #    y_train-X_train @ w_noreg[:, k]).sum(axis=0)/y_train.shape[0]
+    #Error_test[k] = np.square(
+    #    y_test-X_test @ w_noreg[:, k]).sum(axis=0)/y_test.shape[0]
+    # OR ALTERNATIVELY: you can use sklearn.linear_model module for linear regression:
+    m = lm.LinearRegression().fit(X_train, y_train)
+    Error_train[k] = np.square(y_train-m.predict(X_train)).sum()/y_train.shape[0]
+    Error_test[k] = np.square(y_test-m.predict(X_test)).sum()/y_test.shape[0]
+>>>>>>> e3c1ea40f3b0befac6c88a1e17d2ce7b6bb834d7
 
     # To inspect the used indices, use these print statements
     #print('Cross validation fold {0}/{1}:'.format(k+1,K))
@@ -127,9 +140,12 @@ for train_index, test_index in CV.split(X, y):
 show()
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> e3c1ea40f3b0befac6c88a1e17d2ce7b6bb834d7
 #y = X[:,ozone_idx]
 
 #X_cols = list(range(0,ozone_idx)) + list(range(ozone_idx+1,len(attributeNames)))
