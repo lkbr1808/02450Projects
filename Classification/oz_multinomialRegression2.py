@@ -3,7 +3,7 @@ import numpy as np
 
 from importData import *
 
-tempX = np.delete(Y, range(C, M), axis=1)
+tempX = Y[:, range(M-C)]
 tempY = y
 
 test_mask = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 
@@ -23,6 +23,7 @@ test_mask = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 test_mask = np.asarray(test_mask)
 ix = test_mask.reshape(tempX.shape[0])
 
