@@ -9,7 +9,7 @@ doc = xlrd.open_workbook('data.xlsx').sheet_by_index(0)
 # Save attribute names
 attributeNames = doc.row_values(0, 0, 9)
 attributeNames2 = doc.row_values(1, 0, 9)
-tester = doc.row_values(2, 0, 9)
+attributeUnits = doc.row_values(2, 0, 9)
 
 # Save clas (season)
 classLabels = doc.col_values(9, 3, 333)
