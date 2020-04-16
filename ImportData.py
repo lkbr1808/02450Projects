@@ -27,6 +27,7 @@ M = len(attributeNames)
 
 # Extract vector y
 y = np.asarray([classDict[value] for value in classLabels])
+print(y)
 N = len(y)
 
 # Load data into numpy array
@@ -59,3 +60,4 @@ rho = (S*S) / (S*S).sum()
 
 # Project data onto principal component space
 Z = Y @ V
+print(HELOOOO)
