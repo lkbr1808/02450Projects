@@ -1,20 +1,17 @@
-# exercise 8.1.1
 
-from matplotlib.pylab import (figure, semilogx, loglog, xlabel, ylabel, legend, 
-                           title, subplot, show, grid)
-import numpy as np
-from scipy.io import loadmat
 import sklearn.linear_model as lm
 from sklearn import model_selection
 import sys
 sys.path.insert(1, "Tools/toolbox_02450")
 from __init__ import rlr_validate
 
-mat_data = loadmat('./Data/body.mat')
-X = mat_data['X']
-y = mat_data['y'].squeeze()
-attributeNames = [name[0] for name in mat_data['attributeNames'][0]]
-N, M = X.shape
+from importData import *
+
+# mat_data = loadmat('./Data/body.mat')
+# X = mat_data['X']
+# y = mat_data['y'].squeeze()
+# attributeNames = [name[0] for name in mat_data['attributeNames'][0]]
+# N, M = X.shape
 
 # Add offset attribute
 X = np.concatenate((np.ones((X.shape[0],1)),X),1)
@@ -91,23 +88,23 @@ for train_index, test_index in CV.split(X,y):
 
     # Display the results for the last cross-validation fold
     if k == K-1:
-        figure(k, figsize=(12,8))
-        subplot(1,2,1)
-        semilogx(lambdas,mean_w_vs_lambda.T[:,1:],'.-') # Don't plot the bias term
-        xlabel('Regularization factor')
-        ylabel('Mean Coefficient Values')
-        grid()
+        plt.figure(k, figsize=(12,8))
+        plt.subplot(1,2,1)
+        plt.semilogx(lambdas,mean_w_vs_lambda.T[:,1:],'.-') # Don't plot the bias term
+        plt.xlabel('Regularization factor')
+        plt.ylabel('Mean Coefficient Values')
+        plt.grid()
         # You can choose to display the legend, but it's omitted for a cleaner 
         # plot, since there are many attributes
         #legend(attributeNames[1:], loc='best')
         
-        subplot(1,2,2)
-        title('Optimal lambda: 1e{0}'.format(np.log10(opt_lambda)))
-        loglog(lambdas,train_err_vs_lambda.T,'b.-',lambdas,test_err_vs_lambda.T,'r.-')
-        xlabel('Regularization factor')
-        ylabel('Squared error (crossvalidation)')
-        legend(['Train error','Validation error'])
-        grid()
+        plt.subplot(1,2,2)
+        plt.title('Optimal lambda: 1e{0}'.format(np.log10(opt_lambda)))
+        plt.loglog(lambdas,train_err_vs_lambda.T,'b.-',lambdas,test_err_vs_lambda.T,'r.-')
+        plt.xlabel('Regularization factor')
+        plt.ylabel('Squared error (crossvalidation)')
+        plt.legend(['Train error','Validation error'])
+        plt.grid()
     
     # To inspect the used indices, use these print statements
     #print('Cross validation fold {0}/{1}:'.format(k+1,K))
@@ -116,7 +113,7 @@ for train_index, test_index in CV.split(X,y):
 
     k+=1
 
-show()
+
 # Display results
 print('Linear regression without feature selection:')
 print('- Training error: {0}'.format(Error_train.mean()))
@@ -133,4 +130,5 @@ print('Weights in last fold:')
 for m in range(M):
     print('{:>15} {:>15}'.format(attributeNames[m], np.round(w_rlr[m,-1],2)))
 
-print('Ran Exercise 8.1.1')
+
+plt.show()
