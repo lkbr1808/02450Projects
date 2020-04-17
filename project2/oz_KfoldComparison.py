@@ -1,17 +1,8 @@
-from importData import *
-
-
-# exercise 6.2.1
-
 import sklearn.linear_model as lm
 from sklearn import model_selection
-
 from sklearn.neighbors import KNeighborsClassifier, DistanceMetric
 
-import sys
-sys.path.insert(1, "Tools/toolbox_02450")
-from __init__ import feature_selector_lr, bmplot
-
+from importData import *
 
 X = Y[:,:M-C]
 N, M = X.shape
@@ -127,7 +118,7 @@ for train_index, test_index in CV.split(X):
     
     KNN_errors_temp = KNN_errors.sum(axis=1)
 
-    KNN_K_ = np.argmin(KNN_errors_temp[1:]) + 1
+    KNN_K_ = np.argmin(KNN_errors_temp) + 1
     KNN_K[k] = KNN_K_
 
     knclassifier = KNeighborsClassifier(n_neighbors=KNN_K_, p=2, 

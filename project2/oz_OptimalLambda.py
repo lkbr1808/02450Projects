@@ -1,12 +1,6 @@
-# exercise 8.1.2
-
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-
-import sys
-sys.path.insert(1, "Tools/toolbox_02450")
-from __init__ import rocplot, confmatplot
 
 from importData import *
 
@@ -53,6 +47,5 @@ plt.legend(['Training error','Test error','Test minimum'],loc='upper right')
 plt.ylim([0, 4])
 plt.grid()
 
-plt.savefig("project1_figs/fig_OptimalLambdaClass", dpi=300, transparent=True)
-
-plt.show()    
+plt.savefig("project2_figs/fig_OptimalLambdaClass", dpi=300, transparent=True)
+plt.show()
